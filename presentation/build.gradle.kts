@@ -3,10 +3,8 @@ plugins {
     kotlin(Plugins.android)
     // Kapt
     kotlin(Plugins.kapt)
-
     // Hilt
     id(Plugins.hilt)
-
     // SafeArgs
     id(Plugins.safeargs)
 }
@@ -44,6 +42,9 @@ android {
 }
 
 dependencies {
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
     Dependencies.UIComponents.apply {
         // Core
         implementation(core)
@@ -67,6 +68,11 @@ dependencies {
         implementation(lifecycle)
         kapt(hiltCompiler)
     }
+    Dependencies.Retrofit.apply {
+        // Retrofit
+        implementation(retrofit2)
+        implementation(gson)
+    }
 
     // Navigation
     Dependencies.Navigation.apply {
@@ -85,12 +91,9 @@ dependencies {
     // ViewBindingPropertyDelegate
     implementation(Dependencies.Viewbinding.viewbinding)
 
-    // Glide
-    implementation(Dependencies.Glide.glide)
-    annotationProcessor(Dependencies.Glide.bumptech)
-
-    // Paging 3
-    implementation(Dependencies.Paging.paging)
+    //Recycler
+    implementation ("androidx.recyclerview:recyclerview:1.3.0")
+    implementation ("androidx.recyclerview:recyclerview-selection:1.1.0")
 
     //Domain
     implementation(project(":domain"))

@@ -1,13 +1,10 @@
 plugins {
     id(Plugins.application)
     kotlin(Plugins.android)
-
     // Kapt
     kotlin(Plugins.kapt)
-
     // Hilt
     id(Plugins.hilt)
-
     // SafeArgs
     id(Plugins.safeargs)
 }
